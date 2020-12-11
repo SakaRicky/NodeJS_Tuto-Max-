@@ -22,7 +22,7 @@ const requestHandler = (req, res) => {
         });
         req.on('end', () => {
             parsedData = Buffer.concat(body).toString();
-            let message = parsedData.split('=')[1];
+            const message = parsedData.split('=')[0];
             fs.writeFile('message.txt', message, (err) => {
                 res.statusCode = 302;
                 res.setHeader('Location', '/');
@@ -31,14 +31,16 @@ const requestHandler = (req, res) => {
         });
         
     }
-    res.setHeader('content-type', 'text/html');
-    res.write('<html>');
-    res.write('<head><title>My first Page</title></head>');
-    res.write('<body>');
-    res.write('<h1>This is my first Node Page</h1>');
-    res.write('<p>Finally my first Node page YOUPI</p>');
-    res.write('</body>');
-    res.end();
+    if (url === '/first_page') {
+        res.setHeader('content-type', 'text/html');
+        res.write('<html>');
+        res.write('<head><title>My first Page</title></head>');
+        res.write('<body>');
+        res.write('<h1>This is my first Node Page</h1>');
+        res.write('<p>Finally my first Node page YOUPI</p>');
+        res.write('</body>');
+        res.end();
+    }
 }
 
 // module.exports = requestHandler;
