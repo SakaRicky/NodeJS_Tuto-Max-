@@ -1,8 +1,6 @@
-let fs = require('fs');
+const http = require('http');
+const routes = require('./routes')
 
-let data = fs.readFile('readMe.txt', 'utf8', function(err, data){
-    fs.writeFileSync('writeMe.txt', function(err, data){
-        console.log(data);
-    })
-});
-console.log('test')
+const server = http.createServer(routes)
+
+server.listen(3000); 
