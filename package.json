@@ -1,16 +1,20 @@
 {
-  "name": "node_tutorials_max",
+  "name": "nodejs-complete-guide",
   "version": "1.0.0",
-  "description": "Complete Node.js Guide thaught by Max",
+  "description": "Complete Node.js Guide",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
     "start-server": "node app.js"
   },
-  "author": "Ricky",
+  "author": "Maximilian Schwarzmüller",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "^1.18.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
   }
 }
